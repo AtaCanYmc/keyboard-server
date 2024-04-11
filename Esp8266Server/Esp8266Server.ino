@@ -119,5 +119,8 @@ void handleHID() {
     String jsonResponse;
     serializeJson(response, jsonResponse);
 
+    server.sendHeader("Access-Control-Allow-Origin", "*");
+    server.sendHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+    server.sendHeader("Access-Control-Allow-Headers", "Content-Type");
     server.send(200, "application/json", jsonResponse);
 }
